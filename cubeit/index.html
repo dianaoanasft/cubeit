@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube Root Converter</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; background-color: #f4f4f9; }
+        .card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 300px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        #result { margin-top: 20px; font-weight: bold; text-align: center; color: #333; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Cube Converter</h2>
+    <label for="cubeInput">Enter cube number:</label>
+    <input type="number" id="cubeInput" placeholder="Enter cube number:">
+    <button onclick="convert()">Convert</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    function convert() {
+        const val = document.getElementById('cubeInput').value;
+        const resultDiv = document.getElementById('result');
+        
+        if (val === "") {
+            resultDiv.innerText = "Please enter a number.";
+            return;
+        }
+
+        // We use Math.pow(val, 3) or val ** 3 to calculate the cube
+        const cubeResult = Math.pow(parseFloat(val), 3);
+        
+        // Use toLocaleString() to add commas (e.g., 1,000 instead of 1000)
+        resultDiv.innerText = "The cube is: " + cubeResult
+    }
+</script>
+
+</body>
+</html>
